@@ -1,0 +1,1 @@
+{"visState":"{\"type\":\"timelion\",\"title\":\"SN-Timelion-DNS/request/reply\",\"params\":{\"expression\":\".es(q='dns.type:query').label('DNS-request') .es(q='dns.type:answer').label('DNS-reply')\",\"interval\":\"auto\"}}","description":"","title":"SN-Timelion-DNS/request/reply","uiStateJSON":"{}","version":1,"kibanaSavedObjectMeta":{"searchSourceJSON":"{}"}}
