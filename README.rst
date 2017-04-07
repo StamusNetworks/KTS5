@@ -35,11 +35,14 @@ How to use
      git clone https://github.com/StamusNetworks/KTS5.git
      cd KTS5
      
-Load the dashboards in Kibana
+Load the dashboards in Kibana:
 
- - Open your Kibana web interface , select default index
- - Right upper corner, Load -> Choose the desired dashboard
- - Load the desired template(s) from the freshly cloned directory
+Load the dashboards: ::
+
+ ./load.sh
+
+**NOTE:**  
+This may delete any custom dashboards you already have in place.
 
 **NOTE:**  
 In order to use the full HTTP logging dashboard template you need to set up Suricata as
