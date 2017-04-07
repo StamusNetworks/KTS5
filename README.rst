@@ -35,8 +35,6 @@ How to use
      git clone https://github.com/StamusNetworks/KTS5.git
      cd KTS5
      
-Load the dashboards in Kibana:
-
 Load the dashboards: ::
 
  ./load.sh
