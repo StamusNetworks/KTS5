@@ -16,9 +16,9 @@ else
 fi
 
 if [ -z "$2" ]; then
-    CURL=curl
+    CURL="curl -H \"Content-Type: application/json\""
 else
-    CURL="curl --user $2"
+    CURL="curl -H \"Content-Type: application/json\" --user $2"
 fi
 
 echo $CURL
@@ -65,6 +65,3 @@ do
     echo
 done
 
-echo "Loading config:"
-$CURL -XPOST $ELASTICSEARCH/.kibana/config/4.3.1 \
-        -d @dashboards/config.json || exit 1
