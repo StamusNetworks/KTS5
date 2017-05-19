@@ -16,23 +16,23 @@ else
 fi
 
 if [ -z "$2" ]; then
-    CURL="curl -H \"Content-Type: application/json\""
+    CURL=curl
 else
-    CURL="curl -H \"Content-Type: application/json\" --user $2"
+    CURL="curl --user $2"
 fi
 
 echo $CURL
 DIR=dashboards
 
 echo "Cleaning elasticsearch's kibana data"
-$CURL -XDELETE $ELASTICSEARCH/.kibana/ ||:
+$CURL -H "Content-Type: application/json" -XDELETE $ELASTICSEARCH/.kibana/ ||:
 
 for file in $DIR/index-pattern/*.json
 do
     name="$(get_name "$file")"
     echo "Loading index pattern $name:"
 
-    $CURL -XPOST "$ELASTICSEARCH/.kibana/index-pattern/$name" \
+    $CURL -H "Content-Type: application/json" -XPOST "$ELASTICSEARCH/.kibana/index-pattern/$name" \
         -d "@$file" || exit 1
     echo
 done
@@ -42,7 +42,7 @@ for file in $DIR/search/*.json
 do
     name="$(get_name "$file")"
     echo "Loading search $name:"
-    $CURL -XPUT "$ELASTICSEARCH/.kibana/search/$name" \
+    $CURL -H "Content-Type: application/json" -XPUT "$ELASTICSEARCH/.kibana/search/$name" \
         -d "@$file" || exit 1
     echo
 done
@@ -51,7 +51,7 @@ for file in $DIR/visualization/*.json
 do
     name="$(get_name "$file")"
     echo "Loading visualization $name:"
-    $CURL -XPUT "$ELASTICSEARCH/.kibana/visualization/$name" \
+    $CURL -H "Content-Type: application/json" -XPUT "$ELASTICSEARCH/.kibana/visualization/$name" \
         -d "@$file" || exit 1
     echo
 done
@@ -60,7 +60,7 @@ for file in $DIR/dashboard/*.json
 do
     name="$(get_name "$file")"
     echo "Loading dashboard $name:"
-    $CURL -XPUT "$ELASTICSEARCH/.kibana/dashboard/$name" \
+    $CURL -H "Content-Type: application/json" -XPUT "$ELASTICSEARCH/.kibana/dashboard/$name" \
         -d "@$file" || exit 1
     echo
 done
