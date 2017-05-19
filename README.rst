@@ -39,8 +39,10 @@ Load the dashboards: ::
 
  ./load.sh
 
+You would need to select ``logstash-*`` as a default index once you open any dashboard for the first time after initial load/import.
+
 **NOTE:**  
-This may delete any custom dashboards you already have in place.
+This may delete any custom dashboards you already have in place. 
 
 **NOTE:**  
 In order to use the full HTTP logging dashboard template you need to set up Suricata as
