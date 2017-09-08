@@ -39,6 +39,10 @@ Load the dashboards: ::
 
  ./load.sh
 
+If this is a clean elasticsearch 5.x installation (aka not an upgrade from 2.x to 5.x) you need to: ::
+
+ find /path/to/KTS5/dashboards/ -type f -exec sed -i -e 's/.raw/.keyword/g' {} ;
+ 
 You would need to select ``logstash-*`` as a default index once you open any dashboard for the first time after initial load/import.
 
 For optimal results an example of elasticsearch template has been included under `es-template\elasticsearch5-template.json` that is used in SELKS 4.
