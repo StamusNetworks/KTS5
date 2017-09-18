@@ -1,0 +1,36 @@
+{
+    "mappings" : {
+         "dashboard": 
+    { "properties":
+        {
+          "title": { "type": "string" },
+          "hits": { "type": "integer" },
+          "description": { "type": "string" },
+          "panelsJSON": { "type": "string" },
+          "optionsJSON": { "type": "string" },
+          "uiStateJSON": { "type": "string" },
+          "version": { "type": "integer" },
+          "timeRestore": { "type": "boolean" },
+          "timeTo": { "type": "string" },
+          "timeFrom": { "type": "string" }
+        }
+    } , "search" : { "properties" :
+        {
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "hits": { "type": "integer" },
+            "columns": { "type": "string" },
+            "sort": { "type": "string" },
+            "version": { "type": "integer" }
+        }
+    }, "visualization": { "properties":
+        {
+            "title": { "type": "string" },
+            "uiStateJSON": { "type": "string" },
+            "description": { "type": "string" },
+            "savedSearchId": { "type": "string" },
+            "version": { "type": "integer" }
+        }
+    }
+}
+}
