@@ -27,6 +27,10 @@ DIR=dashboards
 echo "Cleaning elasticsearch's kibana data"
 $CURL -H "Content-Type: application/json" -XDELETE $ELASTICSEARCH/.kibana/ ||:
 
+#kibana_mapping="/opt/tests/mappings"
+$CURL -H "Content-Type: application/json" -XPUT $ELASTICSEARCH/.kibana/  \
+-d "@kibana-mappings" || exit 1
+
 for file in $DIR/index-pattern/*.json
 do
     name="$(get_name "$file")"
